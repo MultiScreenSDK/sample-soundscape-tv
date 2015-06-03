@@ -1,6 +1,6 @@
-# Sound Scape
+# SoundScape
 
-Sound Scape is a sample Jukebox app for playing music on Samsung Radiant
+SoundScape is a sample Jukebox app for playing music on Samsung Radiant
 Speakers and Samsung 2015 TVs. It demonstrates how to cast and control music from
 smartphones (Android, iOS and Web) to Samsung speakers and Samsung TVs using
 Samsung Multiscreen APIs.
@@ -11,11 +11,10 @@ For Speakers WAM6500/1 and WAM7500/1.
 
 ## Links to Code Repos
 
+- [TV App](https://github.com/MultiScreenSDK/soundscape-tv)
 - [Android App](https://github.com/MultiScreenSDK/android-audioplayer)
 - [iOS App](https://github.com/MultiScreenSDK/ios-audioplayer)
-- [TV App](https://github.com/MultiScreenSDK/webapp-audioplayer) (In addition to
-the TV/speaker host app, it also contains code for mobile HTML5 client app under
-the mobile directory).
+- [Mobile WebApp](https://github.com/MultiScreenSDK/webapp-audioplayer)
 
 ## Application Overview
 
