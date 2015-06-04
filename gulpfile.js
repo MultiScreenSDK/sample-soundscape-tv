@@ -64,7 +64,6 @@ function buildManifest(src,dest){
       exclude: 'app.manifest'
     }))
     .pipe(gulp.dest(dest));
-
 }
 
 /* Compilation and File Processing */
