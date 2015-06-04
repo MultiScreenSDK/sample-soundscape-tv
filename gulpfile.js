@@ -15,16 +15,11 @@ var manifest = require('gulp-manifest');
 var paths = {
   tv : {
     src   : './src/tv',
-    dest  : './dist/tv',
+    dest  : './dist',
     scripts : ['./src/tv/js/**/*.{js,jsx}'],
     styles  : ['./src/tv/styles/**/*.less'],
     statics : ['./src/tv/{fonts,images,vendor}/**/*.*','./src/tv/index.html']
   },
-  tester : {
-    src   : './src/tester',
-    dest  : './dist/tester',
-    statics : ['./src/tester/**']
-  }
 };
 
 function buildScripts(src,dest){
@@ -85,10 +80,6 @@ gulp.task('statics:tv', function () {
   return buildStatics(paths.tv.statics,paths.tv.dest);
 });
 
-gulp.task('statics:tester', function () {
-  return buildStatics(paths.tester.statics,paths.tester.dest);
-});
-
 gulp.task('manifest:tv', function(){
   return buildManifest([paths.tv.dest + '/**'], paths.tv.dest);
 });
@@ -102,12 +93,7 @@ gulp.task('watch:tv', ['build:tv','server'], function() {
   gulp.watch(paths.tv.statics, ['statics:tv']).on('change', livereload.changed);
 });
 
-gulp.task('watch:tester', ['build:tester','server'], function() {
-  livereload.listen();
-  gulp.watch(paths.tester.statics, ['statics:tester']);
-});
-
-gulp.task('watch', ['watch:tv','watch:tester']);
+gulp.task('watch', ['watch:tv']);
 
 
 /* CleanUp */
@@ -115,26 +101,15 @@ gulp.task('clean:tv', function (cb) {
   del([paths.tv.dest], cb);
 });
 
-gulp.task('clean:tester', function (cb) {
-  del([paths.tester.dest], cb);
-});
-
-gulp.task('clean',['clean:tv', 'clean:tester']);
-
+gulp.task('clean',['clean:tv']);
 
 
 /* Builds */
 gulp.task('build:tv', function(callback) {
-  // runSequence('clean:tv', ['scripts:tv','styles:tv', 'statics:tv'], ['manifest:tv'], callback);
-  runSequence('clean:tv', ['scripts:tv','styles:tv', 'statics:tv'], callback);
+  runSequence('clean:tv', ['scripts:tv','styles:tv', 'statics:tv'], ['manifest:tv'], callback);
 });
 
-gulp.task('build:tester', function(callback) {
-  runSequence('clean:tester', ['statics:tester'], callback);
-});
-
-gulp.task('build',['build:tv','build:tester']);
-
+gulp.task('build',['build:tv']);
 
 
 /* Static Server */
@@ -142,12 +117,12 @@ gulp.task('server', function(done) {
   var app = express();
   var port = 3000;
   app.use(express.static(path.join(__dirname, './dist')));
+  app.use('/tester', express.static(path.join(__dirname, './src/tester')));
   app.listen(port, function(){
     console.log('development server listening on port ' + port);
   });
   done();
 });
-
 
 
 /* Build Everything */
