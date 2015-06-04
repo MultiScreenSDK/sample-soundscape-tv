@@ -22,6 +22,7 @@ var paths = {
   },
 };
 
+
 function buildScripts(src,dest){
   return browserify({
       entries: src,
