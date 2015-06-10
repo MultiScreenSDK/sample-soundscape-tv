@@ -174,11 +174,10 @@ var IdleScreen = React.createClass({
       <div id="info-screen">
         <div id="tv-info">
           <p>{this.props.deviceName}</p>
-          <p>{this.props.ssid? 'On ' + this.props.ssid : ''}</p>
         </div>
         <div id="app-info">
           <img src='images/qr_code.jpg' id="qr-code"/>
-          <span><p>Start the Soundscape mobile web app at bit.ly/1PLQ60N.</p><p>Also available for iOS and Android.</p></span>
+          <span><p>** Debug ** Start the Soundscape mobile web app at bit.ly/1PLQ60N.</p><p>Also available for iOS and Android.</p></span>
         </div>
       </div>
     );
