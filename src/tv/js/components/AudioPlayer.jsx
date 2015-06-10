@@ -49,7 +49,7 @@ export default class AudioPlayer extends React.Component {
   render() {
     var audioFile = this.props.track? encodeURI(this.props.track.file) : '';
     return (
-      <audio id="player" src={audioFile} autoPlay controls={this.props.controls == 'controls'}></audio>
+      <audio id="player" src={audioFile} autoPlay controls></audio>
     );
   }
 }
