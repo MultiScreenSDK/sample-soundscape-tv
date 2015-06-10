@@ -177,7 +177,7 @@ var IdleScreen = React.createClass({
         </div>
         <div id="app-info">
           <img src='images/qr_code.jpg' id="qr-code"/>
-          <span><p>** Debug ** Start the Soundscape mobile web app at bit.ly/1PLQ60N.</p><p>Also available for iOS and Android.</p></span>
+          <span><p>** Debug 01 ** Start the Soundscape mobile web app at bit.ly/1PLQ60N.</p><p>Also available for iOS and Android.</p></span>
         </div>
       </div>
     );
