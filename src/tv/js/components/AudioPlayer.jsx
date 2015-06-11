@@ -30,9 +30,10 @@ export default class AudioPlayer extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     var player = React.findDOMNode(this);
-
-    // play/stop if the "play" prop changed while fading up/down vol
-    if (this.props.play != prevProps.play) {
+    var currentTrackId = this.props.track? this.props.track.id : null;
+    var prevTrackId = prevProps.track? prevProps.track.id : null;
+    // play/stop if either state or track changed while fading up/down vol
+    if (this.props.play != prevProps.play || currentTrackId != prevTrackId) {
       if (this.props.play) {
         player.volume = 0.0;
         player.play();
@@ -40,6 +41,8 @@ export default class AudioPlayer extends React.Component {
       } else {
         $(player).animate({volume: 0.0}, PAUSE_PLAY_FADE_DURATION, null, () => player.pause());
       }
+    } else {
+      this.props.play? player.play() : player.pause();
     }
 
     // set the vol, if it changed
@@ -49,7 +52,7 @@ export default class AudioPlayer extends React.Component {
   render() {
     var audioFile = this.props.track? encodeURI(this.props.track.file) : '';
     return (
-      <audio id="player" src={audioFile} autoPlay controls></audio>
+      <audio id="player" src={audioFile} ></audio>
     );
   }
 }

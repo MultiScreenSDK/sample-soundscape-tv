@@ -31,7 +31,7 @@ export default class App extends React.Component{
     super(props);
     this.state = {
       tracks: [],
-      play: false,
+      play: true,
       time: 0,
       volume: 1.0,
       deviceName: null,
@@ -66,11 +66,7 @@ export default class App extends React.Component{
     if (currentTrackId != prevTrackId) {
       // track changed
       if (prevTrackId) this.channel.publish('trackEnd', prevTrackId, 'broadcast'); // prev track finished
-      if (currentTrackId) {
-        // new track
-        this.channel.publish('trackStart', currentTrackId, 'broadcast');
-        if (!prevTrackId) this.setState({play: true}); // first track, start playing
-      }
+      if (currentTrackId) this.channel.publish('trackStart', currentTrackId, 'broadcast');
     }
     // trackStatus message
     if (this.channel) this.channel.publish('trackStatus', this.getCurrentStatus(), 'broadcast');
@@ -143,14 +139,9 @@ export default class App extends React.Component{
     var track = this.state.tracks[0];
     var nextTrack = this.state.tracks[1];
     var backgroundImage = track? encodeURI(track.albumArt) : 'images/background.jpg';
-    if (!track) return (
-      <div id="jukebox-app" style={{'backgroundImage': 'url(' + backgroundImage + ')'}}>
-        <IdleScreen track={track} deviceName={this.state.deviceName} ssid={this.state.ssid} />
-      </div>
-    );
-
     return (
       <div id="jukebox-app" style={{'backgroundImage': 'url(' + backgroundImage + ')'}}>
+        <IdleScreen track={track} deviceName={this.state.deviceName} ssid={this.state.ssid} />
         <AudioPlayer track={track} play={this.state.play}
           ref="audioPlayer"
           onTrackEnded={this._onTrackEnded.bind(this)}
@@ -177,7 +168,7 @@ var IdleScreen = React.createClass({
         </div>
         <div id="app-info">
           <img src='images/qr_code.jpg' id="qr-code"/>
-          <span><p>** Debug 01 ** Start the Soundscape mobile web app at bit.ly/1PLQ60N.</p><p>Also available for iOS and Android.</p></span>
+          <span><p>Start the Soundscape mobile web app at bit.ly/1PLQ60N.</p><p>Also available for iOS and Android.</p></span>
         </div>
       </div>
     );
