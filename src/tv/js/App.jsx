@@ -163,6 +163,7 @@ var IdleScreen = React.createClass({
     if (this.props.track) return null;
     return (
       <div id="info-screen">
+        <h1>001</h1>
         <div id="tv-info">
           <p>{this.props.deviceName}</p>
         </div>
