@@ -128,6 +128,7 @@ export default class App extends React.Component{
 
   _onTrackEnded() {
     console.log('** Track Ended **');
+    React.findDOMNode(this.refs.audioPlayer).src = '';
     this.next();
   }
 
@@ -139,8 +140,9 @@ export default class App extends React.Component{
     var track = this.state.tracks[0];
     var nextTrack = this.state.tracks[1];
     var backgroundImage = track? encodeURI(track.albumArt) : 'images/background.jpg';
+    console.log('backgroundImage: ' + backgroundImage);
     return (
-      <div id="jukebox-app" style={{'backgroundImage': 'url(' + backgroundImage + ')'}}>
+      <div id="jukebox-app" style={{'backgroundImage': 'url("' + backgroundImage + '")'}}>
         <IdleScreen track={track} deviceName={this.state.deviceName} ssid={this.state.ssid} />
         <AudioPlayer track={track} play={this.state.play}
           ref="audioPlayer"
@@ -163,7 +165,7 @@ var IdleScreen = React.createClass({
     if (this.props.track) return null;
     return (
       <div id="info-screen">
-        <h1>001</h1>
+        <h1>002</h1>
         <div id="tv-info">
           <p>{this.props.deviceName}</p>
         </div>

@@ -26,6 +26,8 @@ export default class AudioPlayer extends React.Component {
     player.addEventListener("ended", this.props.onTrackEnded, true);
     // track update, throttle to 1/sec
     player.addEventListener("timeupdate", _.throttle(() => this.props.onTimeUpdate(player.currentTime), 1000), true);
+    // load intro sound
+    player.src = 'http://s3-us-west-1.amazonaws.com/dev-multiscreen-music-library/intro.mp3';
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -50,9 +52,9 @@ export default class AudioPlayer extends React.Component {
   }
 
   render() {
-    var audioFile = this.props.track? encodeURI(this.props.track.file) : '';
+    var audioFile = this.props.track? encodeURI(this.props.track.file) : ''
     return (
-      <audio id="player" src={audioFile} ></audio>
+      <audio id="player" src={audioFile}></audio>
     );
   }
 }
