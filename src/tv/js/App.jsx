@@ -2,6 +2,7 @@ import React from 'react';
 import MultiscreenService from './MultiscreenService';
 import AudioPlayer from './components/AudioPlayer.jsx';
 
+const VERSION = "017";
 const COLORS = [
   "#EF6C00",
   "#283593",
@@ -140,7 +141,6 @@ export default class App extends React.Component{
     var track = this.state.tracks[0];
     var nextTrack = this.state.tracks[1];
     var backgroundImage = track? encodeURI(track.albumArt) : 'images/background.jpg';
-    console.log('backgroundImage: ' + backgroundImage);
     return (
       <div id="jukebox-app" style={{'backgroundImage': 'url("' + backgroundImage + '")'}}>
         <IdleScreen track={track} deviceName={this.state.deviceName} ssid={this.state.ssid} />
@@ -165,7 +165,7 @@ var IdleScreen = React.createClass({
     if (this.props.track) return null;
     return (
       <div id="info-screen">
-        <h1>002</h1>
+        <h1>{VERSION}</h1>
         <div id="tv-info">
           <p>{this.props.deviceName}</p>
         </div>
