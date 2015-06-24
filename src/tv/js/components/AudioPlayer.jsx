@@ -23,7 +23,10 @@ export default class AudioPlayer extends React.Component {
     // set up player callbacks
     var player = React.findDOMNode(this);
     // track ended call back
-    player.addEventListener("ended", this.props.onTrackEnded, true);
+    player.addEventListener("ended", () => {
+      player.src = '';
+      this.props.onTrackEnded();
+      }, true);
     // track update, throttle to 1/sec
     player.addEventListener("timeupdate", _.throttle(() => this.props.onTimeUpdate(player.currentTime), 1000), true);
     // load intro sound
