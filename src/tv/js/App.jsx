@@ -2,7 +2,7 @@ import React from 'react';
 import MultiscreenService from './MultiscreenService';
 import AudioPlayer from './components/AudioPlayer.jsx';
 
-const VERSION = "017";
+const VERSION = "018";
 const COLORS = [
   "#EF6C00",
   "#283593",
@@ -129,7 +129,6 @@ export default class App extends React.Component{
 
   _onTrackEnded() {
     console.log('** Track Ended **');
-    React.findDOMNode(this.refs.audioPlayer).src = '';
     this.next();
   }
 
