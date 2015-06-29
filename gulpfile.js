@@ -18,7 +18,7 @@ var paths = {
     dest  : './dist',
     scripts : ['./src/tv/js/**/*.{js,jsx}'],
     styles  : ['./src/tv/styles/**/*.less'],
-    statics : ['./src/tv/{fonts,images,vendor}/**/*.*','./src/tv/index.html']
+    statics : ['./src/tv/{fonts,images,vendor}/**/*.*','./src/tv/*.html']
   },
 };
 
