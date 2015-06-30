@@ -30,7 +30,7 @@ export default class AudioPlayer extends React.Component {
     // track update, throttle to 1/sec
     player.addEventListener("timeupdate", _.throttle(() => this.props.onTimeUpdate(player.currentTime), 1000), true);
     // load intro sound
-    player.src = 'http://s3-us-west-1.amazonaws.com/dev-multiscreen-music-library/intro.mp3';
+    player.src = 'http://multiscreen.samsung.com/examples/soundscape/music/intro.mp3';
   }
 
   componentDidUpdate(prevProps, prevState) {
