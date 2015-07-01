@@ -61,6 +61,11 @@ export default class MultiscreenService {
         app.replay();
       });
 
+      channel.on('seek', function(data, client) {
+        console.log(client.id + '=> seek');
+        app.seek(data);
+      });
+
       channel.on('volUp', function(data, client) {
         console.log(client.id + '=> volUp');
         app.volUp();

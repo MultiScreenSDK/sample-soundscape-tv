@@ -19,6 +19,11 @@ export default class AudioPlayer extends React.Component {
     });
   }
 
+  seek(time) {
+    var player = React.findDOMNode(this);
+    player.currentTime = time;
+  }
+
   componentDidMount() {
     // set up player callbacks
     var player = React.findDOMNode(this);
