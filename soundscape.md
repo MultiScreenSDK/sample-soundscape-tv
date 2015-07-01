@@ -84,6 +84,20 @@ Published to the TV (host) so it skip to the next track. Clients should not need
 }
 ```
 
+####seek
+**client -> host**
+Published to the TV (host) so it seek to a specified time in the currently track. Clients should not need to listen to this event as they will receive a trackEnd, trackStatus event.
+```javascript
+{
+  "method": "ms.channel.emit",
+  "params": {
+    "event": "seek",
+    "data": 100,
+    "to": "broadcast"
+  }
+}
+```
+
 ####addTrack
 **client -> broadcast**
 Published to everyone so they can add the track to the local list of songs. Payload is a track model.

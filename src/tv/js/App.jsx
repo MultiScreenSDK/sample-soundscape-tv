@@ -127,6 +127,10 @@ export default class App extends React.Component{
     if (vol >= 0.1) this.setState({volume: vol - 0.1});
   }
 
+  seek(time) {
+    this.refs.audioPlayer.seek(time);
+  }
+
   _onTrackEnded() {
     console.log('** Track Ended **');
     this.next();
