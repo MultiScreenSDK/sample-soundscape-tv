@@ -143,7 +143,8 @@ export default class App extends React.Component{
   render() {
     var track = this.state.tracks[0];
     var nextTrack = this.state.tracks[1];
-    var backgroundImage = track? encodeURI(track.albumArt) : 'images/background.jpg';
+    var backgroundImage = 'images/background.jpg';
+    if (track) backgroundImage = track.albumArt? encodeURI(track.albumArt) : 'images/default-album-art.jpg';
     return (
       <div id="jukebox-app" style={{'backgroundImage': 'url("' + backgroundImage + '")'}}>
         <IdleScreen track={track} deviceName={this.state.deviceName} ssid={this.state.ssid} />
