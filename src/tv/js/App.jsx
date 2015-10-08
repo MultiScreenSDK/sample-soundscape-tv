@@ -173,8 +173,7 @@ var IdleScreen = React.createClass({
           <p>{this.props.deviceName}</p>
         </div>
         <div id="app-info">
-          <img src='images/qr_code.png' id="qr-code"/>
-          <span><p>Download the Soundscape Android app at http://bit.ly/1HqLB6F</p><p>Also available for iOS.</p></span>
+          <span><p>Source code is available for Android, iOS and Tizen TV</p></span>
         </div>
       </div>
     );
