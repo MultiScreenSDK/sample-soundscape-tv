@@ -1,14 +1,16 @@
-# Soundscape TV App
+# SoundScape TV App
 
-The Soundscape TV app is the TV/Speaker host application for [Soundscape](https://github.com/MultiScreenSDK/webapp-audioplayer/blob/master/soundscape.md) Jukebox app. It utilizes the Samsung Multiscreen API to provide a jukebox style song sharing with multiscreen capable Samasung TVs and Speakers. You can read more about the Soundscape here - [link](https://github.com/MultiScreenSDK/webapp-audioplayer/blob/master/soundscape.md).
+## Introduction
+Thank you for downloading this sample application source code. As a best practice, we recommend developing a user experience that works independently of the television. SoundScape is designed to be a companion app for the television or speaker. It requires a television or speaker to be useful. The application consists of three parts: device discovery, application launch and music queue management.
+
+The SoundScape TV app is the TV/Speaker host application for [SoundScape](https://github.com/MultiScreenSDK/webapp-audioplayer/blob/master/SoundScape.md) Jukebox app. It utilizes the Samsung Multiscreen API to provide a jukebox style song sharing with multiscreen capable Samasung TVs and Speakers. You can read more about the SoundScape in the file - soundscape.md.
 
 The project utilizes ReactJS for components and BabelJS for ES6/React code compilation support.
 
 ## App URLs
 
 The latest TV and mobile web apps builds are hosted on AWS S3 and available here:
-- [TV](http://s3-us-west-1.amazonaws.com/dev-multiscreen-examples/examples/soundscape/tv/index.html)
-- [Mobile](http://s3-us-west-1.amazonaws.com/dev-multiscreen-examples/examples/soundscape/mobile/index.html)
+- [TV](http://s3-us-west-1.amazonaws.com/dev-multiscreen-examples/examples/SoundScape/tv/index.html)
 
 
 
@@ -55,4 +57,4 @@ $ gulp watch (available at http://localhost:3000/(mobile|tv)
 ```
 
 ## Communication Protocol (Channel Events)
-Refer to this [document](https://github.com/MultiScreenSDK/webapp-audioplayer/blob/master/soundscape.md) for the communication protocol between TV host app and the mobile client apps.
+Refer to this [document](https://github.com/MultiScreenSDK/webapp-audioplayer/blob/master/SoundScape.md) for the communication protocol between TV host app and the mobile client apps.
